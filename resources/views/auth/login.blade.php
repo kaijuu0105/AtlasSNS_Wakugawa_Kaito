@@ -2,9 +2,9 @@
 
 @section('content')
 <!-- 適切なURLを入力してください -->
-{!! Form::open(['url' => '/login']) !!}
+{!! Form::open(['url' => '/top']) !!}
 
-<p>AtlasSNSへようこそ</p>
+<p>AtlasSNSへようこそo</p>
 
 {{ Form::label('e-mail') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
