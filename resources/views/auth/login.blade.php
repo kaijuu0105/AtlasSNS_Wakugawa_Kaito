@@ -4,7 +4,7 @@
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/top']) !!}
 
-<p>AtlasSNSへようこそo</p>
+<p>AtlasSNSへようこそ</p>
 
 {{ Form::label('e-mail') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
