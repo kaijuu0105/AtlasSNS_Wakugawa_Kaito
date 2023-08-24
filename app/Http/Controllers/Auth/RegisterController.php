@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+// RegisterFormRequestに変更
+// use App\Http\Request\RegisterFormRequest;
 
 class RegisterController extends Controller
 {
@@ -29,6 +31,14 @@ class RegisterController extends Controller
      */
     protected $redirectTo = '/home';
 
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
     /**
      * Create a new controller instance.
      *
@@ -39,7 +49,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function register(Request $request){
+    public function register(Register $request){
         if($request->isMethod('post')){
 
             $username = $request->input('username');
@@ -52,11 +62,13 @@ class RegisterController extends Controller
                 'password' => bcrypt($password),
             ]);
 
-            $request->session()->put('username',$username);
-            return redirect('added');
+            $input = $request->session()->put('username',$username);
+            return redirect('added')->with('username','$input');
 
         }
         return view('auth.register');
+
+        $validated = $request->validated();
     }
 
     public function added(){

@@ -22,16 +22,21 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
+            <h1><a href='/top'><img src="images/logo.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+                    <p>{{Auth::user()->username}}さん<img src="images/arrow.png"></p>
                 <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+                <button type="button" class="menu-btn">
+                    <span class="inn"></span>
+                </button>
+                <nav class="menu">
+                    <ul>
+                      <li><a href="/top">ホーム</a></li>
+                      <li><a href="/profile">プロフィール</a></li>
+                      <li><a href="/logout">ログアウト</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
@@ -41,7 +46,7 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>username</p>
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>
@@ -58,7 +63,7 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>

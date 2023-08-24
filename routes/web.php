@@ -11,20 +11,14 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/home', 'HomeController@index')->name('home');
-
-//Auth::routes();
 
 
 //ログアウト中のページ
  Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
- Route::get('/register/{username}', 'Auth\RegisterController@register');
-Route::post('/register/{username}', 'Auth\RegisterController@register');
+ Route::get('/register', 'Auth\RegisterController@register');
+Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
@@ -39,4 +33,5 @@ Route::get('/search','UsersController@index');
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
+// ログアウトの記述
 Route::post('/logout', 'Auth\LoginController@logout');
